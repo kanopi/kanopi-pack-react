@@ -1,0 +1,47 @@
+{
+  "name": "@kanopi/pack-react",
+  "version": "1.0.0",
+  "description": "Extend @kanopi/pack support for React projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kanopi/kanopi-pack-vue.git"
+  },
+  "keywords": [
+    "Webpack",
+    "SCSS",
+    "Javascript",
+    "Typescript",
+    "React",
+    "Automation"
+  ],
+  "author": "Kanopi Studios, Inc.",
+  "license": "GPL-2.0+",
+  "bugs": {
+    "url": "https://github.com/kanopi/kanopi-pack-react/issues"
+  },
+  "homepage": "https://github.com/kanopi/kanopi-pack-react#readme",
+  "engines": {
+    "node": ">=12 <17",
+    "npm": ">=6.14"
+  },
+  "peerDependencies": {
+    "@kanopi/pack": ">=1.1",
+    "chalk": ">=4.1.2",
+    "react": ">=16.13.0",
+    "react-dom": ">=16.13.0",
+    "webpack": ">=4.46.0"
+  },
+  "bin": {
+    "kanopi-pack-react": "./bin/kanopi-pack-react.js"
+  },
+  "dependencies": {
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
+    "react-refresh": "^0.13.0",
+    "react-refresh-typescript": "^2.0.5",
+    "type-fest": "^2.13.0"
+  }
+}
