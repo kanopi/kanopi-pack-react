@@ -39,9 +39,9 @@
     "kanopi-pack-react": "./bin/kanopi-pack-react.js"
   },
   "dependencies": {
+    "@babel/preset-typescript": "^7.17.12",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
     "react-refresh": "^0.13.0",
-    "react-refresh-typescript": "^2.0.5",
     "type-fest": "^2.13.0"
   }
 }

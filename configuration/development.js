@@ -7,14 +7,16 @@ const {
             profiles: { development: devServerProfile },
             rules: { file: FileRules, javascript: JavascriptRules }
         },
+        configuration: { common },
         environment: { standard: standardEnvironment }
     }
 } = require(path.resolve(__dirname, '..', 'standard-loader'))();
+const { resolver: { requirePackageModule } } = standardEnvironment;
 const merge = requirePackageModule('webpack-merge');
 const ReactRefreshWebpackPlugin = requirePackageModule('@pmmmwh/react-refresh-webpack-plugin');
-const ReactRefreshTypeScript = requirePackageModule('react-refresh-typescript');
+const JavascriptLoaders = require(path.resolve(__dirname, '..', 'scripts'));
 
-let environment = {
+const environment = {
     ...standardEnvironment
 };
 
@@ -27,22 +29,7 @@ module.exports = merge.smart(
         module: {
             rules: [
                 ...FileRules(),
-                JavascriptRules(environment),
-                {
-                    test: /\.[jt]sx?$/,
-                    exclude: /node_modules/,
-                    use: [
-                        {
-                            loader: requirePackageModule('ts-loader'),
-                            options: {
-                                getCustomTransformers: () => ({
-                                    before: ReactRefreshTypeScript(),
-                                }),
-                                transpileOnly: true,
-                            },
-                        },
-                    ],
-                },
+                ...JavascriptLoaders(environment, true),
                 {
                     test: /\.(css|scss|sass)$/,
                     use: [
