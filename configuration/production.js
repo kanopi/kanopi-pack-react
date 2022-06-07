@@ -1,20 +1,26 @@
 const path = require('path');
+
 const {
     standardPackage: {
         components: {
             loaders: { styles: StyleLoaders },
             plugins: { production: productionPlugins },
             profiles: { production: productionProfile },
-            rules: { file: FileRules, typescript: TypescriptRules }
+            rules: { file: FileRules }
         },
-        environment: { standard: { resolver: { requirePackageModule } } }
+        configuration: { common: commonConfiguration },
+        environment: { standard: standardEnvironment }
     }
 } = require(path.resolve(__dirname, '..', 'standard-loader'))();
+const { resolver: { requirePackageModule } } = standardEnvironment;
+
 const merge = requirePackageModule('webpack-merge');
-const JavascriptLoaders = require(path.resolve(__dirname, '..', 'scripts'));
+
+const JavascriptLoaders = require(path.resolve(__dirname, 'loaders', 'scripts'));
+const { loader: ExtractCSSLoader } = requirePackageModule('mini-css-extract-plugin');
 
 module.exports = merge(
-    common(standardEnvironment),
+    commonConfiguration(standardEnvironment),
     {
         ...productionProfile(standardEnvironment),
         module: {

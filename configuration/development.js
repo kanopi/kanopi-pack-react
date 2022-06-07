@@ -1,20 +1,23 @@
 const path = require('path');
+
 const {
     standardPackage: {
         components: {
             loaders: { styles: StyleLoaders },
             plugins: { development: devServerPlugins },
             profiles: { development: devServerProfile },
-            rules: { file: FileRules, javascript: JavascriptRules }
+            rules: { file: FileRules }
         },
         configuration: { common },
         environment: { standard: standardEnvironment }
     }
 } = require(path.resolve(__dirname, '..', 'standard-loader'))();
 const { resolver: { requirePackageModule } } = standardEnvironment;
+
 const merge = requirePackageModule('webpack-merge');
+
 const ReactRefreshWebpackPlugin = requirePackageModule('@pmmmwh/react-refresh-webpack-plugin');
-const JavascriptLoaders = require(path.resolve(__dirname, '..', 'scripts'));
+const JavascriptLoaders = require(path.resolve(__dirname, 'loaders', 'scripts'));
 
 const environment = {
     ...standardEnvironment
@@ -22,7 +25,7 @@ const environment = {
 
 environment.scripts.useJsxSyntax = true;
 
-module.exports = merge.smart(
+module.exports = merge(
     common(environment),
     {
         ...devServerProfile(environment),
