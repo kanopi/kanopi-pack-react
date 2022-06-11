@@ -14,7 +14,7 @@ module.exports = (environment, isDevlopment = false) => {
                             '@babel/preset-typescript',
                             ['@babel/preset-react', { development: isDevlopment, runtime: 'automatic' }]
                         ],
-                        plugins: ['react-refresh/babel'],
+                        plugins: isDevlopment ? ['react-refresh/babel'] : [],
                         sourceMaps: sourceMaps
                     }
                 }
