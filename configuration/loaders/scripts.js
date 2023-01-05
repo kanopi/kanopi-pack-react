@@ -1,4 +1,11 @@
-module.exports = (environment, isDevlopment = false) => {
+/**
+ * Babel based transpiling for React - enabled React Refresh in development mode
+ * 
+ * @param {object} environment Kanopi Pack environment configuration export
+ * @param {boolean} isDevelopment Development mode flag
+ * @returns Loader rule
+ */
+module.exports = (environment, isDevelopment = false) => {
     const { sourceMaps } = environment;
 
     return [
@@ -12,9 +19,9 @@ module.exports = (environment, isDevlopment = false) => {
                         presets: [
                             '@babel/preset-env',
                             '@babel/preset-typescript',
-                            ['@babel/preset-react', { development: isDevlopment, runtime: 'automatic' }]
+                            ['@babel/preset-react', { development: isDevelopment, runtime: 'automatic' }]
                         ],
-                        plugins: isDevlopment ? ['react-refresh/babel'] : [],
+                        plugins: isDevelopment ? ['react-refresh/babel'] : [],
                         sourceMaps: sourceMaps
                     }
                 }

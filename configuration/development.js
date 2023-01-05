@@ -14,7 +14,7 @@ const {
 } = require(path.resolve(__dirname, '..', 'standard-loader'))();
 const { resolver: { requirePackageModule } } = standardEnvironment;
 
-const merge = requirePackageModule('webpack-merge');
+const { merge } = requirePackageModule('webpack-merge');
 
 const ReactRefreshWebpackPlugin = requirePackageModule('@pmmmwh/react-refresh-webpack-plugin');
 const JavascriptLoaders = require(path.resolve(__dirname, 'loaders', 'scripts'));
