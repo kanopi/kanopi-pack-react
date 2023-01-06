@@ -1,6 +1,6 @@
 {
   "name": "@kanopi/pack-react",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Extend @kanopi/pack support for React projects",
   "main": "index.js",
   "scripts": {
@@ -25,23 +25,23 @@
   },
   "homepage": "https://github.com/kanopi/kanopi-pack-react#readme",
   "engines": {
-    "node": ">=12 <17",
-    "npm": ">=6.14"
+    "node": ">=16",
+    "npm": ">=8"
   },
   "peerDependencies": {
-    "@kanopi/pack": ">=1.1",
+    "@kanopi/pack": ">=2",
     "chalk": ">=4.1.2",
     "react": ">=16.13.0",
     "react-dom": ">=16.13.0",
-    "webpack": ">=4.46.0"
+    "webpack": ">=5"
   },
   "bin": {
     "kanopi-pack-react": "./bin/kanopi-pack-react.js"
   },
   "dependencies": {
-    "@babel/preset-typescript": "^7.17.12",
-    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
-    "react-refresh": "^0.13.0",
-    "type-fest": "^2.13.0"
+    "@babel/preset-typescript": "^7.18.6",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.10",
+    "react-refresh": "^0.14.0",
+    "type-fest": "^3.5.1"
   }
 }
