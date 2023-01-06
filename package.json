@@ -1,6 +1,5 @@
 {
   "name": "@kanopi/pack-react",
-  "version": "2.0.0",
   "description": "Extend @kanopi/pack support for React projects",
   "main": "index.js",
   "scripts": {
