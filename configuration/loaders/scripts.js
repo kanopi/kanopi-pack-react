@@ -6,26 +6,26 @@
  * @returns Loader rule
  */
 module.exports = (environment, isDevelopment = false) => {
-    const { sourceMaps } = environment;
+  const { sourceMaps } = environment;
 
-    return [
+  return [
+    {
+      test: /\.[j|t]sx?$/,
+      exclude: /node_modules/,
+      use: [
         {
-            test: /\.[j|t]sx?$/,
-            exclude: /node_modules/,
-            use: [
-                {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: [
-                            '@babel/preset-env',
-                            '@babel/preset-typescript',
-                            ['@babel/preset-react', { development: isDevelopment, runtime: 'automatic' }]
-                        ],
-                        plugins: isDevelopment ? ['react-refresh/babel'] : [],
-                        sourceMaps: sourceMaps
-                    }
-                }
-            ]
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/preset-env',
+              '@babel/preset-typescript',
+              ['@babel/preset-react', { development: isDevelopment, runtime: 'automatic', throwIfNamespace: false }]
+            ],
+            plugins: isDevelopment ? ['react-refresh/babel'] : [],
+            sourceMaps: sourceMaps
+          }
         }
-    ];
+      ]
+    }
+  ];
 }
