@@ -7,6 +7,28 @@ The Kanopi Pack React module adds support to Webpack for React development and l
 
 Kanopi Pack offers JSX/TSX linting support out of the box, though an ESLint configuration is required. ESLint configurations are scoped within a particular directory. If you place all of your React apps in the `./assets/src/react` folder, ensure there is an `.eslintrc.js` file there, or in a directory above it. 
 
+# Additional Configuration
+
+Following are the configuration options available in addition to the Standard Kanopi Pack configuration:
+
+## Section: `devServer`
+
+### Structure
+
+    "devServer": {
+        "react": {
+            "enableOverlay": false
+        }
+    }
+
+
+### Details
+
+| Setting | Default | Required? | Type | Usage |
+|---------|---------|:---------:|------|-------|
+| `react.enableOverlay` | false | No | Boolean | Enables the React Refresh overlay, redundant with the Webpack overlay so disabled by default. |
+
+
 # Package Version Notes
 
 | Package | Version Limit | Reason |
