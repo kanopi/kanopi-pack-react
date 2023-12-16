@@ -10,17 +10,17 @@ const {
     },
     configuration: { common },
     environment: {
-      modules: { configurationLoader },
+      modules: { configurationFileLoader },
       standard: standardEnvironment
     }
   }
 } = require(path.resolve(__dirname, '..', 'standard-loader'))();
-const {
-  resolver: { requirePackageModule },
-} = standardEnvironment;
+const { resolver } = standardEnvironment;
+const { requirePackageModule } = resolver;
 
-const kanopiPackConfig = configurationLoader.read(requirePackageModule);
+const kanopiPackConfig = configurationFileLoader.read(resolver);
 const enableReactRefreshOverlay = kanopiPackConfig?.devServer?.react?.enableOverlay ?? false;
+
 const { merge } = requirePackageModule('webpack-merge');
 
 const ReactRefreshWebpackPlugin = requirePackageModule('@pmmmwh/react-refresh-webpack-plugin');
