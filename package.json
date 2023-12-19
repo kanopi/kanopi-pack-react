@@ -38,8 +38,8 @@
   },
   "dependencies": {
     "@babel/preset-typescript": "~7.23.3",
-    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
-    "react-refresh": "^0.14.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "~0.5.11",
+    "react-refresh": "~0.14.0",
     "type-fest": "~3.13.1"
   }
 }
