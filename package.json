@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/kanopi/kanopi-pack-react#readme",
   "engines": {
-    "node": ">=16",
+    "node": ">=18",
     "npm": ">=8"
   },
   "peerDependencies": {
