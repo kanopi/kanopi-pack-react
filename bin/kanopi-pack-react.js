@@ -15,16 +15,16 @@ const {
 } = standardPackage;
 
 const PACKAGE_MODES = {
-  'development': { name: 'Development', runner: () => runDevServer(development) },
-  'production': { name: 'Production', runner: () => runWebpack(production) },
-  'watch': { name: 'Watch', runner: () => watchWebpack(watch, watchOptions) }
+  'development': { configuration: development, name: 'Development', runner: () => runDevServer(development) },
+  'production': { configuration: production, name: 'Production', runner: () => runWebpack(production) },
+  'watch': { configuration: watch, name: 'Watch', runner: () => watchWebpack(watch, watchOptions) }
 };
 
 program
   .command('check-configuration')
   .description('Output the Webpack configuration for the specified environment.')
   .argument('[depth]', 'Number of levels deep (default 6) to show the configuration')
-  .argument('[environment]', 'Choose production (default) or development')
+  .argument('[environment]', 'Choose production (default), development, or watch')
   .argument('[color]', 'Whether to show the output in color (default false)')
   .action((depth = 6, environment = 'production', color = false) => {
     const selectedMode = PACKAGE_MODES[environment] ?? PACKAGE_MODES['production'];
@@ -41,15 +41,15 @@ program
 program
   .command('react')
   .description('Run React application builds, set environment to development for HMR, or watch for rebuilds without HMR.')
-  .argument('[environment]', 'Choose production (default) or development')
+  .argument('[environment]', 'Choose production (default), development, or watch')
   .action((environment) => {
     const selectedMode = PACKAGE_MODES[environment] ?? PACKAGE_MODES['production'];
-    const { configuration, name, runner } = selectedMode;
+    const { name, runner } = selectedMode;
 
     console.log(chalk.greenBright('Package:\tKanopi Pack React'))
     console.log(chalk.yellow('Environment:\t' + name));
     console.log('');
-    runner(configuration);
+    runner();
   });
 
 program.parse(process.argv);
