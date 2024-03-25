@@ -6,7 +6,7 @@ const utility = require('util');
 const {
   chalk,
   standardPackage,
-  react: { development, production, watch }
+  react: { development, production }
 } = require(path.resolve(__dirname, '..', 'index'));
 const {
   commands: { standard: program },
@@ -17,7 +17,7 @@ const {
 const PACKAGE_MODES = {
   'development': { configuration: development, name: 'Development', runner: () => runDevServer(development) },
   'production': { configuration: production, name: 'Production', runner: () => runWebpack(production) },
-  'watch': { configuration: watch, name: 'Watch', runner: () => watchWebpack(watch, watchOptions) }
+  'watch': { configuration: production, name: 'Watch', runner: () => watchWebpack(production, watchOptions) }
 };
 
 program

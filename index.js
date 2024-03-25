@@ -5,7 +5,6 @@ module.exports = {
   ...package,
   react: {
     development: require(path.resolve(__dirname, 'configuration', 'development')),
-    production: require(path.resolve(__dirname, 'configuration', 'production')),
-    watch: require(path.resolve(__dirname, 'configuration', 'watch'))
+    production: require(path.resolve(__dirname, 'configuration', 'production'))
   }
 };
